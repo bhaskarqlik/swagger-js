@@ -10,7 +10,7 @@ export function makeFetchJSON(http) {
       headers: {
         Accept: 'application/json'
       },
-      credentials: 'same-origin' // same-origin to send cookies and auth headers
+      credentials: (http.withCredentials ? 'include' : 'same-origin') // same-origin to send cookies and auth headers
     })
     .then((res) => {
       return res.body
